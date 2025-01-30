@@ -33,12 +33,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Базовый функционал
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Добавленный функционал
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -76,24 +80,21 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 load_dotenv()
-USER = os.getenv('MS_SQL_USER')
-PASSWORD = os.getenv('MS_SQL_KEY')
-HOST = os.getenv('MS_SQL_SERVER')
-DATABASE = os.getenv('MS_SQL_DATABASE')
-PAD_DATABASE = os.getenv('MS_SQL_PAD_DATABASE')
-DRIVER = os.getenv('MS_SQL_DRIVER')
+USER = os.getenv('PG_USER')
+PASSWORD = os.getenv('PG_KEY')
+HOST = os.getenv('PG_SERVER')
+PORT = os.getenv('PG_PORT')
+DATABASE = os.getenv('PG_DATABASE')
+PAD_DATABASE = os.getenv('PG_PAD_DATABASE')
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mssql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': DATABASE,
         'USER': USER,
         'PASSWORD': PASSWORD,
         'HOST': HOST,
-        'PORT': '',
-        'OPTIONS': {
-            'driver': DRIVER
-        }
+        'PORT': PORT,
     }
 }
 
