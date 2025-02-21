@@ -29,7 +29,7 @@ class Command(BaseCommand):
             conn.autocommit = True
             try:
                 cursor = conn.cursor()
-                cursor.execute(fr'CREATE DATABASE {DATABASE};')
+                cursor.execute(fr"CREATE DATABASE {DATABASE} WITH ENCODING 'UTF8';")
             except psycopg2.ProgrammingError as ex:
                 print(ex)
             else:

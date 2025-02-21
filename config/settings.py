@@ -81,8 +81,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 load_dotenv()
 USER = os.getenv('PG_USER')
-PASSWORD = os.getenv('PG_KEY')
-HOST = os.getenv('PG_SERVER')
+PASSWORD = os.getenv('PG_PASSWORD')
+HOST = os.getenv('PG_HOST')
 PORT = os.getenv('PG_PORT')
 DATABASE = os.getenv('PG_DATABASE')
 PAD_DATABASE = os.getenv('PG_PAD_DATABASE')
@@ -139,3 +139,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = 'users.User'
