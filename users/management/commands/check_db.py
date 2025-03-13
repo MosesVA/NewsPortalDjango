@@ -11,7 +11,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         try:
             conn = psycopg2.connect(
-                dbname=PAD_DATABASE,
+                dbname=DATABASE,
                 user=USER,
                 password=PASSWORD,
                 host=HOST,
