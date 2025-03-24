@@ -134,9 +134,47 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = (
+    BASE_DIR / 'static',
+)
+"""django.views.static.serve()
++ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+прописывается в config.urls.py"""
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = (
+    BASE_DIR / 'media'
+)
+
+"""Поскольку MEDIA_URL определен как '/media/', то к config.urls.py добавляется следующа строка
++ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)"""
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
+# LOGIN_REDIRECT_URL = 'dogs:index'  # '/'
+# LOGOUT_REDIRECT_URL = 'dogs:index'
+# LOGIN_URL = '/users/'
+
+# CACHE_ENABLED = os.getenv('CACHE_ENABLED') == 'True'
+# if CACHE_ENABLED:
+#     CACHES = {
+#         'default': {
+#             'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+#             'LOCATION': os.getenv('CACHE_LOCATION')
+#         }
+#     }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.yandex.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = os.getenv('YANDEX_MAIL')
+EMAIL_HOST_PASSWORD = os.getenv('YANDEX_PASSWORD_APP')
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+
+EMAIL_SERVER = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+DEFAULT_ADMIN = EMAIL_HOST_USER
