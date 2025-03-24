@@ -1,0 +1,66 @@
+{% extends 'users/base.html' %}
+
+{% block title %}
+    Главная
+{% endblock %}
+
+{% block content %}
+
+    <div class="row row-cols-1 row-cols-md-3 mb-3">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3 text-center">
+                    <h4 class="my-0 fw-normal">Мой профиль</h4>
+                </div>
+                {#            <img class="card-img-top" src="{{ user.avatar|user_media }}" width="300" height="700"#}
+                {#                 alt="Card image cap">#}
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li class="fs-4 text-body-emphasis">Почта: {{ user.email }}</li>
+                        <li class="fs-4 text-body-emphasis">Имя: {{ user.first_name }}</li>
+                        <li class="fs-4 text-body-emphasis">Фамилия: {{ user.last_name }}</li>
+                        <li class="fs-4 text-body-emphasis">Телефон: {{ user.phone|default:"Не указано" }}</li>
+                        <li class="fs-4 text-body-emphasis">Телеграм-аккаунт: {{ user.telegram|default:"Не указано" }}</li>
+                    </ul>
+                    {#                <span class="card-text"></span><br>#}
+                    {#                <span class="card-text"></span><br>#}
+                    {#                <span class="card-text"></span><br>#}
+                    {#                <span class="card-text"></span><br>#}
+                    {#                <span class="card-text"></span><br>#}
+                    {#                <button class="btn btn-outline-primary">#}
+                    {#                    <a class="btn btn-link" href="{% url 'users:update_user' %}">обновить</a>#}
+                    {#                </button>#}
+                    {#                <button class="btn btn-outline-warning">#}
+                    {#                    <a class="btn btn-link" href="{% url 'users:change_password_user' %}">изменить пароль</a>#}
+                    {#                </button>#}
+                    {#                <button class="btn btn-outline-danger">#}
+                    {#                    <a class="btn btn-link" href="{% url 'users:user_generate_new_password' %}">генерация пароля</a>#}
+                    {#                </button>#}
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    {#    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">#}
+    {#        <div class="col">#}
+    {#            <div class="card mb-4 rounded-3 shadow-sm">#}
+    {#                <div class="card-header py-3">#}
+    {#                    <h4 class="my-0 fw-normal">Free</h4>#}
+    {#                </div>#}
+    {#                <div class="card-body">#}
+    {#                    <h1 class="card-title pricing-card-title">$0<small#}
+    {#                            class="text-body-secondary fw-light">/mo</small></h1>#}
+    {#                    <ul class="list-unstyled mt-3 mb-4">#}
+    {#                        <li>10 users included</li>#}
+    {#                        <li>2 GB of storage</li>#}
+    {#                        <li>Email support</li>#}
+    {#                        <li>Help center access</li>#}
+    {#                    </ul>#}
+    {#                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+{% endblock %}
