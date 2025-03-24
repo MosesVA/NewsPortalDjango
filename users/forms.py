@@ -46,7 +46,7 @@ class UserUpdateForm(StyleFormMixin, forms.ModelForm):
     """Форма обновления данных Пользователя"""
     class Meta:
         model = User
-        fields = ('email', 'first_name', 'last_name', 'phone', 'telegram', 'avatar')
+        fields = ('email', 'first_name', 'last_name', 'phone', 'avatar')
 
 
 class UserPasswordChangeForm(StyleFormMixin, PasswordChangeForm):
