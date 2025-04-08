@@ -30,7 +30,6 @@ class UserRegisterView(CreateView):
 class UserLoginView(LoginView):
     """Отрисовка страницы входа в профиль"""
     form_class = UserLoginForm
-    success_url = reverse_lazy('users:profile_user')
     template_name = 'users/login_user.html'
 
 
@@ -44,15 +43,19 @@ class UserProfileView(UpdateView):
         return self.request.user
 
 
-# class UserUpdateView(UpdateView):
-#     """Отрисовка страницы обновления данных пользователя"""
-#     model = User
-#     form_class = UserUpdateForm
-#     template_name = 'users/update_user.html'
-#     success_url = reverse_lazy('users:profile_user')
-#
-#     def get_object(self, queryset=None):
-#         return self.request.user
+class UserLogoutView(LogoutView):
+    pass
+
+
+class UserUpdateView(UpdateView):
+    """Отрисовка страницы обновления данных пользователя"""
+    model = User
+    form_class = UserUpdateForm
+    template_name = 'users/update_user.html'
+    success_url = reverse_lazy('users:profile_user')
+
+    def get_object(self, queryset=None):
+        return self.request.user
 #
 #
 # class UserPasswordChangeView(PasswordChangeView):
@@ -62,9 +65,6 @@ class UserProfileView(UpdateView):
 #     success_url = reverse_lazy('users:profile_user')
 #
 #
-# class UserLogoutView(LogoutView):
-#     """Отрисовка страницы выхода из профиля"""
-#     template_name = 'users/logout_user.html'
 #
 #
 # class UserListView(LoginRequiredMixin, ListView):
